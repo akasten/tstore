@@ -1,0 +1,4 @@
+SELECT ?property ?hasValue
+WHERE {
+  %OfferXYZ% ?property ?hasValue .
+}

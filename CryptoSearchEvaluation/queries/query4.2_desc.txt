@@ -1,0 +1,5 @@
+QueryType=Select
+
+ProductType=ProductTypeURI
+ProductFeature1=ProductFeatureURI
+ProductFeature3=ProductFeatureURI

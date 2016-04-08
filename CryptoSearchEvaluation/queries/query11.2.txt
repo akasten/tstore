@@ -1,0 +1,4 @@
+SELECT ?property ?isValueOf
+WHERE {
+  ?isValueOf ?property %OfferXYZ% .
+}
