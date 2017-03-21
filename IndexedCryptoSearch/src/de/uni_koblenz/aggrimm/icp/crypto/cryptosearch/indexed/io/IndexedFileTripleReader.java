@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.uni_koblenz.aggrimm.icp.crypto.cryptosearch.common.Utils;
+import de.uni_koblenz.aggrimm.icp.crypto.cryptosearch.common.core.Utils;
 
 public class IndexedFileTripleReader {
 

@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Map;
 
-import de.uni_koblenz.aggrimm.icp.crypto.cryptosearch.common.Utils;
+import de.uni_koblenz.aggrimm.icp.crypto.cryptosearch.common.core.Utils;
 
 public class IndexedFileTripleWriter implements IndexedTripleWriter {
 
@@ -20,28 +20,28 @@ public class IndexedFileTripleWriter implements IndexedTripleWriter {
 
 		// Format for writing the triples:
 		// indexKey - ciphertext size - ciphertext
-		// 4 bytes  - 4 bytes           <ciphertext size> bytes
+		// 4 bytes - 4 bytes <ciphertext size> bytes
 		for (int i : triples.keySet()) {
-			
+
 			// Write the indexKey.
 			this.streamWriter.write(Utils.intToByteArray(i));
-			
+
 			// Get the next ciphertext.
 			byte[] value = triples.get(i);
-			
+
 			// Write the size of the ciphertext.
 			this.streamWriter.write(Utils.intToByteArray(value.length));
-			
+
 			// Write the actual ciphertext.
 			this.streamWriter.write(value);
 		}
 	}
-	
+
 	public void writeTriple(int tripleId, byte[] triple) throws IOException {
-		
+
 		// Format for writing the triples:
 		// indexKey - ciphertext size - ciphertext
-		// 4 bytes  - 4 bytes           <ciphertext size> bytes
+		// 4 bytes - 4 bytes <ciphertext size> bytes
 		this.streamWriter.write(Utils.intToByteArray(tripleId));
 		this.streamWriter.write(Utils.intToByteArray(triple.length));
 		this.streamWriter.write(triple);
@@ -64,7 +64,7 @@ public class IndexedFileTripleWriter implements IndexedTripleWriter {
 
 		writeTriple(new int[] { mmmId, mmpId, mpmId, pmmId, ppmId, pmpId,
 				mppId, pppId }, new byte[][] { mmmE, mmpE, mpmE, pmmE, ppmE,
-				pmpE, mppE, pppE });
+						pmpE, mppE, pppE });
 	}
 
 	@Override
